@@ -2,7 +2,10 @@
 #include <string.h>
 #include <stdlib.h>
 
-// Yıldız ve girinti işlemleri çok fazla kullanılacağından fonksiyonel hale getirelim
+/**
+ * Yıldız işlemleri çok fazla kullanılacağından fonksiyonel hale getirelim
+ * 2 için * *, 3 için * * * metni döndürür
+ */
 char* create_indents(int level) {
     char* text = malloc(0);
     for (int i = 0; i < level; i++) {
@@ -11,6 +14,10 @@ char* create_indents(int level) {
     return text;
 }
 
+/**
+ * Girinti işlemleri çok fazla kullanılacağından fonksiyonel hale getirelim
+ * 2 için "  ", 3 için "   " metni döndürür
+ */
 char* create_stars(int level) {
     char* text = malloc(0);
     for (int i = 0; i < level; i++) {
@@ -24,7 +31,9 @@ char* create_stars(int level) {
     return text;
 }
 
-// Üst üçgen için son kısma ekleme yapılacak
+/**
+ * Üst üçgen için son kısma ekleme yapılacak
+ */
 char* append_up_triangle(char* up_triangle, int level, int n){
     strcat(up_triangle, "\n");
     strcat(up_triangle, create_indents(n - (level + 1)));
@@ -34,7 +43,9 @@ char* append_up_triangle(char* up_triangle, int level, int n){
     return up_triangle;
 }
 
-// Alt üçgen için baş kısma ekleme yapılacak
+/**
+ * Alt üçgen için baş kısma ekleme yapılacak
+ */
 char* append_down_triangle(char* down_triangle, int level, int n){
     char* text = malloc(0);
     strcat(text, create_indents(n - (level + 1)));
